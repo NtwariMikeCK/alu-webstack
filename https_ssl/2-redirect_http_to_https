@@ -37,6 +37,7 @@ frontend myschoolwork
     bind *:80
     bind *:443 ssl crt  /etc/letsencrypt/live/www.myschoolwork.tech/myschoolwork.pem
     mode http
+    redirect scheme https code 301 if !{ ssl_fc }
     default_backend app
 
 backend app
